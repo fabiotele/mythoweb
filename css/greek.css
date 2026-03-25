@@ -1,0 +1,150 @@
+/* ---------- RESET & VARIABLES ---------- */
+:root{
+  --blue-deep:#1f85fa;
+  --white-marble:#f2f1e7;
+  --gold:#d4af37;
+  --black:#111;
+  --gray:#555;
+  --shadow:0 4px 12px rgba(0,0,0,.15);
+}
+@font-face {
+  font-family: 'Gelio';
+  src: url('../fonts/GelioFasolada.woff2') format('woff2'),
+       url('../fonts/GelioFasolada.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Serif Greek',serif;background:var(--white-marble);color:var(--black);}
+h1,h2,h3{font-family:'GFS Didot',serif;font-weight:400;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+
+/* ---------- HOME ---------- */
+.home{overflow-x:hidden;}
+.hero{
+  height:100vh;
+  background:url('../fotos/portada4.jpg') center/cover no-repeat;
+  position:relative;display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.hero .overlay{position:absolute;inset:0;background:rgba(10,38,70,.55);}
+.hero-content{position:relative;z-index:2;color:#fff;}
+.logo-main {
+  font-family: 'Gelio', serif; /* <-- tu fuente */
+  font-size: clamp(8rem, 10vw, 7rem);
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px var(--gold);
+}
+.sub{font-size:1.3rem;margin:1rem 0 2rem;}
+.btn-gold{
+  background:var(--blue-deep);color:var(--black);padding:14px 32px;border-radius:4px;
+  font-weight:700;transition:.3s;display:inline-block;
+}
+.btn-gold:hover{filter:brightness(1.15);}
+.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);}
+.scroll-indicator span{
+  display:block;width:24px;height:24px;border-right:2px solid #fff;border-bottom:2px solid #fff;
+  transform:rotate(45deg);animation:scroll 2s infinite;
+}
+@keyframes scroll{0%,100%{opacity:0;}50%{opacity:1;}}
+.intro{padding:80px 20px;text-align:center;background:url('https://www.transparenttextures.com/patterns/marble.png'),var(--white-marble);}
+.intro h2{font-family: 'Gelio',serif; font-size:4rem;color:var(--blue-deep);margin-bottom:1rem;}
+.intro p{max-width:700px;margin:auto;font-size:1.1rem;line-height:1.7;}
+footer{background:var(--blue-deep);color:#fff;padding:50px 20px 30px;}
+.footer-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+footer h3{margin-bottom:.5rem;color:var(--gold);}
+footer a{color:var(--gold);}
+
+/* ---------- MENU ---------- */
+.menu-page{background:url('https://www.transparenttextures.com/patterns/marble.png'),var(--white-marble);}
+.menu-header{background:var(--blue-deep);color:#fff;padding:30px 0;}
+.menu-header h1{font-family: 'Gelio',serif; font-size:normal; font-weight: clamp(4.5rem,7vw,8rem); letter-spacing: (0.05em);text-shadow: 0 0 8px rgba(0,0,0,.35)  ;}
+.cols{display:flex;justify-content:space-between;align-items:center;}
+.back-link{color:var(--gold);}
+.menu-nav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:15px;
+  background:#fff;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:10;
+}
+.menu-nav button{
+  border:2px solid var(--blue-deep);color:var(--blue-deep);
+  padding:8px 18px;border-radius:30px;font-weight:700;transition:.3s;
+}
+.menu-nav button.active{background:var(--blue-deep);color:#fff;}
+.menu-grid{display:grid;grid-template-columns:1fr 340px;gap:30px;padding:30px 20px;}
+#platos{display:grid;gap:40px;}
+.category{scroll-margin-top:90px;}
+.category h2{
+  display:inline-block;border-bottom:3px solid var(--gold);padding-bottom:6px;margin-bottom:15px;font-size:1.8rem;color:var(--blue-deep);
+}
+.items{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
+.dish-card{
+  background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;transition:transform .3s;
+}
+.dish-card:hover{transform:translateY(-4px);}
+.dish-card img{width:100%;height:160px;object-fit:cover;}
+.dish-body{padding:15px;display:flex;flex-direction:column;flex:1;}
+.dish-body h4{font-size:1.15rem;margin-bottom:6px;}
+.dish-body p{flex:1;font-size:.9rem;color:var(--gray);margin-bottom:10px;}
+.dish-foot{display:flex;justify-content:space-between;align-items:center;}
+.price{font-weight:700;color:var(--blue-deep);}
+.addBtn{
+  background:var(--gold);color:#fff;padding:7px 14px;border-radius:4px;transition:filter .2s;
+}
+.addBtn:hover{filter:brightness(1.1);}
+/* ---------- CARRITO ---------- */
+.cart-wrapper{position:sticky;top:100px;align-self: flex-start; margin-bottom: 40px;}
+.cart{background:#fff;border:2px solid var(--gold);border-radius:8px;padding:20px;}
+.cart h3{margin-bottom:15px;color:var(--blue-deep);}
+#cartList{max-height:300px;overflow:auto;}
+#cartList li{display:flex;justify-content:space-between;margin-bottom:8px;}
+.total{font-weight:700;text-align:right;margin:15px 0;font-size:1.1rem;}
+#waBtn{
+  width:100%;background:var(--blue-deep);color:#fff;padding:12px;border-radius:4px;font-size:1rem;
+}
+#waBtn:hover{background:#0a1f3a;}
+/* ---------- BOTONES FLOTANTES ---------- */
+.float-wa{
+  position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;
+  background:#25d366;color:#fff;display:grid;place-items:center;font-size:1.6rem;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);z-index:999;
+}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .menu-grid{grid-template-columns:1fr;}
+  .cart-wrapper{margin-top:40px;position:static;}
+}
+
+
+:root{
+  --bg:        #ffffff;      /* fondo blanco puro      */
+  --text:      #111111;      /* negro suave            */
+  --accent:    #00c2cb;      /* turquesa minimalista   */
+  --light:     #f5f5f5;      /* gris casi blanco       */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+  --radius:    8px;          /* esquinas ligeramente redondeadas */
+}
+/* tipografía ultra-clean */
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+
+/* tarjetas blancas, sombra suave, bordes redondeados */
+.dish-card{background:#fff;border:none;border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;}
+.dish-card:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,.12);}
+.dish-card img{border-radius:var(--radius) var(--radius) 0 0;}
+/* precio y botón minimal */
+.price{font-weight:600;color:var(--accent);}
+.addBtn{background:var(--accent);color:#fff;border-radius:var(--radius);padding:8px 16px;font-weight:500;border:none;transition:background .25s;}
+.addBtn:hover{background:#00a5ad;}
+
+.cart{background:#fff;border:1px solid #e5e5e5;border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+.cart h3{color:var(--accent);font-weight:500;}
+#waBtn{background:var(--accent);border-radius:var(--radius);font-weight:500;}
+#waBtn:hover{background:#00a5ad;}
+
+/* elimina mármol y meandros */
+.menu-page{background:#fff;}
+.category h2{border-bottom:2px solid var(--accent);color:var(--text);}
+/* quita bordes meandros del header */
+.menu-header{border-bottom:1px solid #e5e5e5;}
